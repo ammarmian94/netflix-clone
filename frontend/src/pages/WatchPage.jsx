@@ -30,8 +30,6 @@ const WatchPage = () => {
   };
 
   const scrollLeft = () => {
-    console.log("Scroll Left");
-    console.log(sliderRef.current.offsetwidth);
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
         left: -sliderRef.current.offsetWidth,
@@ -41,7 +39,6 @@ const WatchPage = () => {
   };
 
   const scrollRight = () => {
-    console.log("Scroll Right");
     sliderRef.current.scrollBy({
       left: sliderRef.current.offsetWidth,
       behavior: "smooth",

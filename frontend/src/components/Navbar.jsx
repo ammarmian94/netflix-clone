@@ -30,7 +30,7 @@ const Navbar = () => {
             <Link
               to={"/"}
               className="hover:underline"
-              onClick={() => setContentType("movies")}
+              onClick={() => setContentType("movie")}
             >
               Movies
             </Link>

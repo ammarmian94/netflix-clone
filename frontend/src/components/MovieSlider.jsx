@@ -12,7 +12,7 @@ const MovieSlider = ({ category }) => {
 
   const sliderRef = useRef(null);
 
-  const formattedContentType = contentType === "movies" ? "Movies" : "TV Shows";
+  const formattedContentType = contentType === "movie" ? "Movies" : "TV Shows";
   const formattedCategoryName =
     category.replaceAll("-", " ")[0].toUpperCase() +
     category.replaceAll("_", " ").slice(1);
@@ -26,8 +26,6 @@ const MovieSlider = ({ category }) => {
   }, [category, contentType]);
 
   const scrollLeft = () => {
-    console.log("Scroll Left");
-    console.log(sliderRef.current.offsetwidth);
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
         left: -sliderRef.current.offsetWidth,
@@ -37,7 +35,6 @@ const MovieSlider = ({ category }) => {
   };
 
   const scrollRight = () => {
-    console.log("Scroll Right");
     sliderRef.current.scrollBy({
       left: sliderRef.current.offsetWidth,
       behavior: "smooth",

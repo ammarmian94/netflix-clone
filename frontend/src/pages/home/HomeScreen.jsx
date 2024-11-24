@@ -87,7 +87,7 @@ const HomeScreen = () => {
       </div>
 
       <div className="flex flex-col gap-10 py-10 bg-black">
-        {contentType === "movies"
+        {contentType === "movie"
           ? MOVIE_CATEGORIES.map((category) => (
               <MovieSlider key={category} category={category} />
             ))

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { ORIGINAL_IMG_BASE_URL } from "../utils/constants";
 
 const SearchPage = () => {
-  const [activeTab, setActiveTab] = useState("movies");
+  const [activeTab, setActiveTab] = useState("movie");
   const [searchTerm, setSearchTerm] = useState("");
 
   const [results, setResults] = useState([]);
@@ -16,7 +16,7 @@ const SearchPage = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    tab === "movies" ? setContentType("movies") : setContentType("tv");
+    tab === "movie" ? setContentType("movie") : setContentType("tv");
     setResults([]);
   };
 
@@ -35,7 +35,6 @@ const SearchPage = () => {
       }
     }
   };
-  console.log(results);
   return (
     <div className="bg-black min-h-screen text-white">
       <Navbar />
@@ -43,9 +42,9 @@ const SearchPage = () => {
         <div className="flex justify-center gap-3 mb-4">
           <button
             className={`px-4 py-2 rounded ${
-              activeTab === "movies" ? "bg-red-600" : "bg-gray-800"
+              activeTab === "movie" ? "bg-red-600" : "bg-gray-800"
             } hover:bg-red-700`}
-            onClick={() => handleTabClick("movies")}
+            onClick={() => handleTabClick("movie")}
           >
             Movies
           </button>
@@ -101,7 +100,12 @@ const SearchPage = () => {
                     <h2 className="mt-2 text-xl font-bold">{result.name}</h2>
                   </div>
                 ) : (
-                  <Link to={"/watch/" + result.id}>
+                  <Link
+                    to={"/watch/" + result.id}
+                    onCLick={() => {
+                      setContentType(activeTab);
+                    }}
+                  >
                     <img
                       src={ORIGINAL_IMG_BASE_URL + result.poster_path}
                       alt={result.title || result.name}
