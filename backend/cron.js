@@ -3,7 +3,7 @@ import https from "https";
 
 const URL = "https://netflix-clone-ozat.onrender.com/";
 
-const cron = new CronJob("*/14 * * * *", function () {
+const job = new CronJob("*/14 * * * *", function () {
   https
     .get(URL, (res) => {
       if (statusCode === 200) {
@@ -17,4 +17,4 @@ const cron = new CronJob("*/14 * * * *", function () {
     });
 });
 
-export default cron;
+export default job;
