@@ -9,7 +9,6 @@ const AuthScreen = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
     navigate("/signup?email=" + email);
   };
   return (
